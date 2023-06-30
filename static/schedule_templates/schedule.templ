@@ -1,0 +1,48 @@
+{{ schedule.today }}
+
+1) Завтрак ({{ schedule.breakfast.time() }})
+{{ schedule.breakfast }}
+<b>Условие: телефон перед камерой</b>
+
+2) Перерыв {{ schedule.first_brake.total }} мин ({{ schedule.first_brake.time() }})
+
+3) Чай ({{ schedule.tea_brake.time() }})
+{{ schedule.tea_brake }}
+<b>Условия:</b>
+<b>На кухне.</b>
+<b>Телефон перед камерой.</b>
+
+4) Просмотр художественных фильмов ({{ schedule.movie.total }} мин, {{ schedule.movie.time() }})
+{{ schedule.movie }}
+<b></b>Условия:</b>
+<b>Отвечать в телеграмм</b>
+<b>https://t.me/+NjmlYdtGRd1iODli</b>
+<b>Телефон перед камерой.</b>
+Ссылка на видео:
+{{ schedule.movie.link }}
+
+5) Изложение ({{ schedule.presentation.total }} мин, {{ schedule.presentation.time() }})
+{{ schedule.presentation }}
+
+6) Перерыв ({{ schedule.second_break.total }} мин, {{ schedule.second_break.time() }})
+
+7) {{ schedule.spelling }} ({{ schedule.spelling.total }} мин, {{ schedule.spelling.time() }})
+{{ schedule.spelling }}
+
+8) Обед ({{ schedule.dinner.total }} мин, {{ schedule.dinner.time() }})
+{{ schedule.dinner }}
+<b>Условие: телефон перед камерой</b>
+
+9-12) {{ schedule.lms }} ({{ schedule.lms.time() }} мин, {{ schedule.lms.time() }})
+<b>Условия:</b>
+<b>Самоконтроль!</b>
+<b>Телефон перед камерой.</b>
+
+13) Перерыв ({{ schedule.third_break.total }} мин, {{ schedule.third_break.time() }})
+
+
+?! Если успели:
+14) {{ schedule.reading }} ({{ schedule.reading.time() }})
+<b>Условия:</b>
+<b>Записывать неизвестные слова в словарик.</b>
+<b>Телефон перед камерой.</b>
