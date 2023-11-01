@@ -1,0 +1,33 @@
+        try:
+            cmd = msg.text.lower().split(' ')[0]
+            await msg.answer(interpreter.parse(msg.text.lower(), schedule))
+            try:
+                if cmd == 'поменяй':
+                    sub = msg.text.lower().split(' ')[1]
+                    begin = msg.text.split(' ')[2]
+                    total = msg.text.split(' ')[3].split('\n')[0]
+                    title = msg.text.split('\n')[1]
+                    # schedule.mod(sub, begin, total, title)
+                elif cmd == 'измени':
+                    sub = msg.text.lower().split(' ')[1]
+                    if len(msg.text.split(' ')) == 3:
+                        time_stop = msg.text.split(' ')[2]
+                        # меняем время в конкретном пункте и после
+                        # schedule.stop(sub=sub, time_stop=time_stop)
+                        await msg.answer(replace_schedule(schedule, sub))
+                    elif len(msg.text.split(' ')) == 2:
+                        time_stop = datetime.now().strftime(HM_TEMPLATE)
+                        # меняем время в конкретном пункте и после
+                        # schedule.stop(sub=sub, time_stop=time_stop)
+                        # await msg.answer(replace_schedule(schedule, sub))
+                    else:
+                        await msg.answer(f'Слишком много аргументов ({len(msg.text.split(" "))}), '
+                                         'функция _измени_ принимает 2 аргумента:\n'
+                                         '1. Название пункта (см. /список);\n2. Время окончания, def. now().')
+
+                else:
+                    await msg.answer('Стоило начать команду со слов "измени" или "поменяй". См. /команды')
+            except BaseException:
+                await msg.answer('Что-то не то, попробуй снова.')
+        except BaseException:
+            await msg.answer('Ты уверен, что оно именно так пишется?')
